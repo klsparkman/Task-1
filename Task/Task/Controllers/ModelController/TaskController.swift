@@ -23,15 +23,18 @@ class TaskController {
         task.name = name
         task.notes = notes
         task.dueDate = dueDate
-        
+        saveToPersistentStorage(tasks: tasks)
     }
     
     func toggleIsComplete(task: Task) {
-        
+        task.isComplete = !task.isComplete
+        saveToPersistentStorage(tasks: tasks)
     }
     
     func delete(task: Task) {
-        
+        guard let index = tasks.firstIndex(of: task) else {return}
+        tasks.remove(at: index)
+        saveToPersistentStorage(tasks: tasks)
     }
     
     // MARK: - Persistence

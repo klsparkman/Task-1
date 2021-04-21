@@ -20,3 +20,9 @@ class Task: Codable {
         self.isComplete = isComplete
     }
 }
+
+extension Task: Equatable {
+    static func == (lhs: Task, rhs: Task) -> Bool {
+        return lhs.name == rhs.name && lhs.dueDate == rhs.dueDate
+    }
+}
