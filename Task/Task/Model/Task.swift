@@ -23,6 +23,6 @@ class Task: Codable {
 
 extension Task: Equatable {
     static func == (lhs: Task, rhs: Task) -> Bool {
-        return lhs.name == rhs.name && lhs.dueDate == rhs.dueDate
+        return lhs.name == rhs.name && lhs.notes == rhs.notes && lhs.dueDate == rhs.dueDate && lhs.isComplete == rhs.isComplete
     }
 }
